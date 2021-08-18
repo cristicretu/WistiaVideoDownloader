@@ -7,7 +7,7 @@ import urllib.request
 stop_download = False
 
 def download():
-    startUrl = input()
+    startUrl = input("Paste the video details here: ")
 
     codeResult = startUrl.find("?wvideo=")
 
@@ -31,7 +31,7 @@ def download():
     for i in range(codeResult - 72, codeResult + 4):
         toDownload += page_source[i]
 
-    name = input("Numele videoului: ")
+    name = input("Enter desired video name: ")
 
     r = requests.get(toDownload, stream = True)
     with open (f'{name}.mp4', 'wb') as f:
